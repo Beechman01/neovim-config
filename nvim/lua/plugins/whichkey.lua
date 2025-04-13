@@ -19,12 +19,8 @@ return {
     },
    },
    keys = {
-     {
-       "<leader>?",
-       function()
-         require("which-key").show({ global = false })
-       end,
-       desc = "Buffer Local Keymaps (which-key)",
-     },
+    {"<leader>?", function() require("which-key").show({ global = false }) end, desc = "Buffer Local Keymaps (which-key)",},
+    {"<leader>mt", function() require("mini.map").toggle() end, desc = "Toggle MiniMap"},
+    {"<leader>ms", function() require("mini.map").toggle_side() end, desc = "Toggle MiniMap Side"}
    },
 }

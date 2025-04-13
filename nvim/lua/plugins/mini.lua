@@ -4,9 +4,6 @@ return {
     version = '*',
     lazy = true,
     config = function()
-      require("mini.completion").setup()
-      require("mini.icons").setup()
-      require("mini.snippets").setup()
       require("mini.comment").setup(
         {
           mappings = {
@@ -16,9 +13,6 @@ return {
           },
         }
       )
-      require("mini.move").setup()
-      require("mini.pairs").setup()
-      require("mini.splitjoin").setup()
       require("mini.surround").setup(
         {
           mappings = {
@@ -29,17 +23,19 @@ return {
             highlight = '<leader>Sh', -- Highlight surrounding
             replace = '<leader>Sr', -- Replace surrounding
             update_n_lines = '<leader>Sn', -- Update `n_lines`
-          }
+          },
         }
       )
+      require("mini.map").setup()
+      require("mini.completion").setup()
+      require("mini.icons").setup()
+      require("mini.snippets").setup()
+      require("mini.move").setup()
+      require("mini.pairs").setup()
+      require("mini.splitjoin").setup()
       require("mini.git").setup()
       require("mini.diff").setup()
-      require("mini.statusline").setup(
-        {
-
-        }
-      )
-      -- require("mini.indentscope").setup()
+      require("mini.statusline").setup()
     end
   },
   {
@@ -47,4 +43,5 @@ return {
     version = '*'
   }
 }
+
 
