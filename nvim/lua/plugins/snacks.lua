@@ -1,50 +1,9 @@
 return {
   "folke/snacks.nvim",
   priority = 1000,
-  lazy = true,
+  lazy = false,
   ---@type snacks.Config
   opts = {
-    dashboard = {
-        sections = {
-          { section = "header" },
-          {
-            pane = 2,
-            section = "terminal",
-            cmd = "colorscript -e bars",
-            height = 5,
-            padding = 1,
-            border = "rounded"
-          },
-          { section = "keys", gap = 1, padding = 1 },
-          { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
-          { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
-          {
-            pane = 2,
-            icon = " ",
-            title = "Git Status",
-            section = "terminal",
-            enabled = function()
-              return Snacks.git.get_root() ~= nil
-            end,
-            cmd = "git status --short --branch --renames",
-            height = 5,
-            padding = 1,
-            ttl = 5 * 60,
-            indent = 3,
-          },
-          { section = "startup" },
-        },
-        header = [[
-                                                                   
-      ████ ██████           █████      ██                 btw
-     ███████████             █████                            
-     █████████ ███████████████████ ███   ███████████  
-    █████████  ███    █████████████ █████ ██████████████  
-   █████████ ██████████ █████████ █████ █████ ████ █████  
- ███████████ ███    ███ █████████ █████ █████ ████ █████ 
-██████  █████████████████████ ████ █████ █████ ████ ██████
-]],
-      },
     notifier = {
       enabled = true,
       timeout = 3000,
@@ -115,7 +74,16 @@ return {
     {"<leader>ps", function() Snacks.profiler.scratch() end, desc = "Profiler Scratch Buffer"},
     -- Top Pickers & Explorer
     { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
-    { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
+    {
+      "<leader>,",
+      function() Snacks.picker.buffers(
+        {
+          layout = "select",
+          focus = "list"
+        }
+      ) end,
+      desc = "Buffers"
+    },
     { "<leader>fgg", function() Snacks.picker.grep() end, desc = "Grep" },
     { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
     { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
