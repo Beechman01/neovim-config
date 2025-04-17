@@ -26,6 +26,8 @@ return {
           },
         }
       )
+      require("mini.statusline").setup()
+      require("mini.cursorword").setup()
       require("mini.map").setup()
       require("mini.completion").setup()
       require("mini.icons").setup()
@@ -35,7 +37,6 @@ return {
       require("mini.splitjoin").setup()
       require("mini.git").setup()
       require("mini.diff").setup()
-      require("mini.statusline").setup()
     end
   },
   {
