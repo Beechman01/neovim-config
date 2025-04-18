@@ -26,7 +26,7 @@ return {
           },
         }
       )
-      require("mini.statusline").setup()
+      -- require("mini.statusline").setup()
       require("mini.cursorword").setup()
       require("mini.map").setup()
       require("mini.completion").setup()
